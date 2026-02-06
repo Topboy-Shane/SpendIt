@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpendIt - Smart Spending Tracker</title>
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body {
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    header h1 {
+      font-size: 1.6em;
+      letter-spacing: 1px;
+    }
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #c084fc;
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 160px;
+      padding: 0 20px;
+      animation: fadeIn 1.5s ease;
+    }
+    .hero h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: floatText 6s infinite ease-in-out;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: rgba(255,255,255,0.9);
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #fff;
+      color: #3b82f6;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+    }
+
+    /* Floating shapes */
+    .shapes div {
+      position: absolute;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      animation: float 10s infinite ease-in-out;
+    }
+    .shapes div:nth-child(1) { width: 80px; height: 80px; left: 5%; bottom: 20%; animation-delay: 0s; }
+    .shapes div:nth-child(2) { width: 120px; height: 120px; right: 10%; top: 25%; animation-delay: 2s; }
+    .shapes div:nth-child(3) { width: 60px; height: 60px; right: 30%; bottom: 15%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: relative;
+      bottom: 15px;
+      text-align: center;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.8);
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 15px 25px; }
+      .hero h2 { font-size: 2em; }
+      .hero p { font-size: 1em; }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💰 SpendIt</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="Login-Register.php">Login</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Track Smarter. Spend Better.</h2>
+    <p>Monitor your income, expenses, and savings all in one place — effortlessly.</p>
+    
+  </div>
+<h2 id="typewriter"></h2>
+<script>
+  const text = "Track Smarter. Spend Better.Track every cent. Save every dollar.";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typewriter").textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
+  }
+  window.onload = type;
+</script>
+
+  <div class="shapes">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+<section style="min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(to bottom right,#3b82f6,#9333ea); color:white; text-align:center; padding:60px 20px;">
+  <h1 style="font-size:3em; margin-bottom:10px;">💸 SpendIt — Your Money, Simplified.</h1>
+  <p style="max-width:700px; font-size:1.2em; line-height:1.6;">
+    Take control of your finances with SpendIt — your all-in-one smart budget companion.  
+    Track your expenses, visualize where your money goes, and stay ahead of your goals — whether for personal growth or your business hustle.
+  </p>
+  
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:50px;">
+
+    <!-- Card 1 -->
+    <div style="background:white; color:#333; border-radius:20px; width:300px; padding:20px; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
+      <img src="Spendittest.jpg" alt="Track Expenses" style="width:100%; border-radius:15px;">
+      <h3 style="margin-top:15px;">Track Every Dollar</h3>
+      <p>Log your daily spending and watch your balance grow with clear, easy-to-read charts.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="background:white; color:#333; border-radius:20px; width:300px; padding:20px; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
+      <img src="images/analyze-trends.jpg" alt="Analyze Trends" style="width:100%; border-radius:15px;">
+      <h3 style="margin-top:15px;">Analyze & Plan</h3>
+      <p>See monthly comparisons, spending patterns, and make smarter financial decisions.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="background:white; color:#333; border-radius:20px; width:300px; padding:20px; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
+      <img src="images/sync-everywhere.jpg" alt="Sync Across Devices" style="width:100%; border-radius:15px;">
+      <h3 style="margin-top:15px;">Sync Across Devices</h3>
+      <p>Access your SpendIt data anywhere — your money, your control, always at your fingertips.</p>
+    </div>
+
+  </div>
+
+  <button onclick="window.location.href='Login-Register.php';"
+          style="margin-top:60px; background:white; color:#3b82f6; border:none; padding:15px 30px; border-radius:30px; font-size:1.1em; font-weight:bold; cursor:pointer; transition:0.3s;">
+    Get Started →
+  </button>
+</section>
+
+  <footer style="
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  background: rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  font-size: 0.9em;
+  color: rgba(255,255,255,0.85);
+">
+  <p>© <?php echo date('Y'); ?> <strong>SpendIt</strong>. All rights reserved.</p>
+  <div style="margin-top:10px;">
+    <a href="#about" style="color:#fff; margin:0 10px; text-decoration:none;">About</a> |
+    <a href="#features" style="color:#fff; margin:0 10px; text-decoration:none;">Features</a> |
+    <a href="mailto:support@spendit.com" style="color:#fff; margin:0 10px; text-decoration:none;">Contact</a>
+  </div>
+</footer>
+
+
+</body>
+</html>
