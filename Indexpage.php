@@ -4,6 +4,7 @@
 
 session_start();
 
+
 if (!isset($_SESSION['user_id'])) {header("Location: Login-Register.php"); exit;}
 
 
@@ -38,7 +39,7 @@ if (isset($_POST['edit_expense'])) {
     $expense_date = $_POST['expense_date'];
 
     $sql = "UPDATE expenses 
-            SET item_name = ?, price = ?, category = ?, SubCategory = ?, expense_date = ?
+            SET item_name = ?, price = ?, category = ?, subcategory = ?, expense_date = ?
             WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sdsssi", $item_name, $price, $category, $subcategory, $expense_date, $id);
@@ -66,7 +67,8 @@ if (isset($_POST['add_expense'])) {
     $item_name    = $_POST['item_name'];
     $price        = $_POST['price'];
     $category     = $_POST['category'];
-    $subcategory  = $_POST['subcategory'] ?? null;
+    $subcategory = $_POST['subcategory'] ?? null;
+
     $expense_date = $_POST['expense_date'];
 
     // Find latest salary before expense date
@@ -519,7 +521,7 @@ body.dark #weatherCard {
         <td><?php echo $row['expense_date']; ?></td>
         <td><?php echo htmlspecialchars($row['item_name']); ?></td>
         <td><?php echo htmlspecialchars($row['category']); ?></td>
-<td><?php echo htmlspecialchars($row['subcategory'] ?? ''); ?></td>
+<td><?php echo htmlspecialchars($row['SubCategory'] ?? ''); ?></td>
 <td><?php echo htmlspecialchars($row['price']); ?></td>
 
         <td><?php echo $row['salary_date'] ?? "❓ None"; ?></td>
@@ -548,7 +550,7 @@ body.dark #weatherCard {
     <input type="text" name="category" id="edit_category"><br>
 
     <label>Subcategory:</label>
-    <input type="text" name="subcategory" id="edit_subcategory"><br>
+    <input type="text" name="subcategory" id="edit_subcategory">
 
     <label>Date:</label>
     <input type="date" name="expense_date" id="edit_date" required><br>
@@ -671,7 +673,8 @@ function openEditForm(data) {
   document.getElementById('edit_item').value = data.item_name;
   document.getElementById('edit_price').value = data.price;
   document.getElementById('edit_category').value = data.category;
-  document.getElementById('edit_subcategory').value = data.SubCategory || data.subcategory || '';
+ document.getElementById('edit_subcategory').value = data.SubCategory || '';
+
   document.getElementById('edit_date').value = data.expense_date;
 }
 </script>
